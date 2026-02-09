@@ -92,8 +92,22 @@
             70% { box-shadow: 0 0 0 10px rgba(118,255,3, 0); }
             100% { box-shadow: 0 0 0 0 rgba(118,255,3, 0); }
         }
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
 
-        .floating-food {
+.button-group button {
+    flex: 1;
+    margin: 0;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #60adfa, #60b3f8) !important;
+}
+
+     .floating-food {
             position: fixed;
             bottom: 20px;
             left: 20px;
@@ -171,6 +185,11 @@
     <button onclick="calculateCalories()">Calculate Calories</button>
 
     <div class="result" id="result"></div>
+
+   
+    <button onclick="clearForm()" class="btn-secondary">Clear</button>
+ 
+</div>
 </div>
 
 <script>
@@ -242,12 +261,21 @@ function showResult(message, bgColor, textColor) {
     resultDiv.style.color = textColor;
     resultDiv.classList.add("show");
 }
+function clearForm() {
+    document.getElementById("age").value = "";
+    document.getElementById("weight").value = "";
+    document.getElementById("height").value = "";
+    document.getElementById("gender").value = "female";
+    document.getElementById("activity").value = "1.2";
+    deleteResult();
+}
+function deleteResult() {
+    let resultDiv = document.getElementById("result");
+    resultDiv.classList.remove("show");
+    resultDiv.style.display = "none";
+}
 
 </script>
 
 </body>
 </html> 
-
-
-    
-
