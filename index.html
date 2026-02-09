@@ -86,7 +86,24 @@
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(67, 160, 71, 0.4);
         }
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
 
+.button-group button {
+    flex: 1;
+    margin: 0;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #1976d2, #42a5f5) !important;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #d32f2f, #f44336) !important;
+}
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(118,255,3, 0.6); }
             70% { box-shadow: 0 0 0 10px rgba(118,255,3, 0); }
@@ -171,6 +188,12 @@
     <button onclick="calculateCalories()">Calculate Calories</button>
 
     <div class="result" id="result"></div>
+  
+<div class="button-group">
+    <button onclick="calculateCalories()">Calculate Calories</button>
+    <button onclick="clearForm()" class="btn-secondary">Clear</button>
+    <button onclick="deleteResult()" class="btn-danger">Delete Result</button>
+</div>
 </div>
 
 <script>
@@ -241,8 +264,20 @@ function showResult(message, bgColor, textColor) {
     resultDiv.style.backgroundColor = bgColor;
     resultDiv.style.color = textColor;
     resultDiv.classList.add("show");
+} 
+function clearForm() {
+    document.getElementById("age").value = "";
+    document.getElementById("weight").value = "";
+    document.getElementById("height").value = "";
+    document.getElementById("gender").value = "female";
+    document.getElementById("activity").value = "1.2";
+    deleteResult();
 }
-
+function deleteResult() {
+    let resultDiv = document.getElementById("result");
+    resultDiv.classList.remove("show");
+    resultDiv.style.display = "none";
+}
 </script>
 
 </body>
@@ -250,4 +285,5 @@ function showResult(message, bgColor, textColor) {
 
 
     
+
 
