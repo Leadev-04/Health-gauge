@@ -135,6 +135,12 @@
         @media (max-width: 768px) {
             .container { flex-direction: column; }
         }
+        @media (max-width: 400px) {
+    .container { 
+        width: 90%; 
+        padding: 20px;
+    }
+}
     </style>
 </head>
 <body>
@@ -221,7 +227,7 @@ function calculateCalories() {
     if (bmi < 18.5) bmiStatus = "Underweight, Consider a nutritious diet to gain weight";
     else if (bmi < 25) bmiStatus = "Normal weight, Keep up the good work!";
     else if (bmi < 30) bmiStatus = "Overweight, Regular exercise + balanced diet recommended";
-    else bmiStatus = "Obese";
+    else bmiStatus = "Obese, Consult a professional for a healthy plan";
 
 
     showResult(
@@ -247,6 +253,7 @@ function showResult(message, bgColor, textColor) {
 
 
     
+
 
 
 
