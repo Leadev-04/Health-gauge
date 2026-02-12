@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <title>Healthy Calorie Tracker</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1932&auto=format&fit=crop') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+      body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1932&auto=format&fit=crop') no-repeat center center scroll;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: center; 
+    }
+}
 
         .container {
             background: rgba(255, 255, 255, 0.85); 
@@ -149,11 +156,19 @@
         @media (max-width: 768px) {
             .container { flex-direction: column; }
         }
+        @media (max-width: 400px) {
+    .container { 
+        width: 90%; 
+        padding: 20px;
+    }
+}
     </style>
+    <meta name="description" content="Calculate your TDEE and BMI with our professional Healthy Calorie Tracker. Free, fast, and accurate tool for your fitness journey.">
+<meta name="keywords" content="Calorie Calculator, TDEE Tracker, BMI Calculator, Health Tool, Fitness Planner, Calorie Calculator, BMI, حساب السعرات الحرارية,حساب كتلة الجسم">
+<link rel="canonical" href="https://wafaa-kh-prog.github.io/Health-gauge/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<img src="images/avocado.gif" class="floating-food">
 
 <div class="container">
     <h2>Healthy Calorie Tracker</h2>
@@ -240,10 +255,9 @@ function calculateCalories() {
 
     let bmiStatus = "";
     if (bmi < 18.5) bmiStatus = "Underweight, Consider a nutritious diet to gain weight";
-    if (bmi < 18.5) bmiStatus = "Underweight, Consider a nutritious diet to gain weight";
     else if (bmi < 25) bmiStatus = "Normal weight, Keep up the good work!";
     else if (bmi < 30) bmiStatus = "Overweight, Regular exercise + balanced diet recommended";
-    else bmiStatus = "Obese";
+    else bmiStatus = "Obese, Consult a professional for a healthy plan";
 
 
     showResult(
